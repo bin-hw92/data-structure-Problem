@@ -11,7 +11,7 @@
 이진탐색
 그래프
 
-유형의 문제 
+유형의 문제 풀이
 
 
 출처 : 프로그래머스 연습문제, https://programmers.co.kr/learn/challenges
