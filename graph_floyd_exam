@@ -1,0 +1,54 @@
+//그래프, 플로이드 알고리즘이용 문제
+/*
+문제 설명
+n명의 권투선수가 권투 대회에 참여했고 각각 1번부터 n번까지 번호를 받았습니다. 권투 경기는 1대1 방식으로 진행이 되고, 만약 A 선수가 B 선수보다 실력이 좋다면 A 선수는 B 선수를 항상 이깁니다. 심판은 주어진 경기 결과를 가지고 선수들의 순위를 매기려 합니다. 하지만 몇몇 경기 결과를 분실하여 정확하게 순위를 매길 수 없습니다.
+
+선수의 수 n, 경기 결과를 담은 2차원 배열 results가 매개변수로 주어질 때 정확하게 순위를 매길 수 있는 선수의 수를 return 하도록 solution 함수를 작성해주세요.
+
+제한사항
+선수의 수는 1명 이상 100명 이하입니다.
+경기 결과는 1개 이상 4,500개 이하입니다.
+results 배열 각 행 [A, B]는 A 선수가 B 선수를 이겼다는 의미입니다.
+모든 경기 결과에는 모순이 없습니다.
+*/
+
+function solution(n, results) {
+    const result = Array.from(new Array(n+1),() => new Array(n+1).fill(0)); //그래프를 만들기 위해서 배열 생성 (1번부터 시작을 해야하기 때문에 +1 추가)
+    for(const [a, b] of results){ //선수별 값을 저장
+        result[a][b] += 1; //a선수가 b 선수를 이김
+        result[b][a] -= 1; //b선수가 a 선수에게 짐
+        result[a][a] = 0; //본인과의 경기
+        result[b][b] = 0; //본인과의 경기
+    }
+    const floydWarshall = (result) => {
+        const len = result.length;
+        for(let n=0; n<len; n++){
+            for(let a=0; a<len; a++){
+                for(let b=0; b <len; b++){
+                    if(result[a][n] === 1 && result[n][b] === 1){//a선수가 n선수를 이김, n선수가 b선수를 이김
+                        result[a][b] = 1; //a > n = n > b === a > b 이 성립
+                    }else if(result[a][n] === -1 && result[n][b] === -1){
+                        result[a][b] = -1; //위와 마찬가지로, a < n = n < b === a < b
+                    }
+                }
+            }
+        }
+    }
+    floydWarshall(result); 
+    let answer = 0;
+    for(let i=0; i < result.length; i++){ //새롭게 정리된 내용을 가지고 옴
+        let check = true;
+        let cnt = 0;
+        for(let j=0; j < result[i].length; j++){
+            if(result[i][j] !== 0 && i !== j){ //결과가 있는 값을 다 확인
+                cnt++;
+            }
+        }
+        if(cnt === result.length-2){ //시합 경과가 전체 다 있는 선수 값 반환, length -2 인 이유는 0번이 있기 때문에 2개 빼줘야 함
+            answer +=1;
+        }
+    }
+    return answer;
+}
+
+//출처 : 프로그래머스 코딩테스트 연습문제 순위 : https://programmers.co.kr/learn/courses/30/lessons/49191
