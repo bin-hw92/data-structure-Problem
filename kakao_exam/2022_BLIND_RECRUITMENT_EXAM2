@@ -1,7 +1,7 @@
 /*
 파괴되지 않은 건물
-문제 설명
 
+문제 설명
 N x M 크기의 행렬 모양의 게임 맵이 있습니다. 이 맵에는 내구도를 가진 건물이 각 칸마다 하나씩 있습니다. 적은 이 건물들을 공격하여 파괴하려고 합니다. 건물은 적의 공격을 받으면 내구도가 감소하고 내구도가 0이하가 되면 파괴됩니다. 반대로, 아군은 회복 스킬을 사용하여 건물들의 내구도를 높이려고 합니다.
 
 적의 공격과 아군의 회복 스킬은 항상 직사각형 모양입니다.
@@ -48,23 +48,27 @@ type이 2이면 degree만큼 건물의 내구도를 높입니다.
 
 function solution(board, skill) {
     const answer = Array.from(Array(board.length+1), () => Array(board[0].length+1).fill(0));
-skill.forEach(([type, r1, c1, r2, c2, degree]) => {
+    skill.forEach(([type, r1, c1, r2, c2, degree]) => {
         degree = type == 1 ? -degree : degree;
         for(let i=r1; i <= r2; i++){
           answer[i][c1] += degree;
           answer[i][c2+1] -= degree;
         }
     });
-    board.map((target, i, arr) => {
-        target = arr.map((item, j) => {
-           if(i != 0) answer[i][j] = Number(answer[i][j]) + Number(answer[i][j-1]);
-            item = Number(item) + Number(answer[i][j]);
-            return item;
-        });
-       // console.log(target)
-        return target;
-    });
-   // console.log(board)
+    //console.log(answer)
+    
+    let cnt = 0;
+    for(const n in board){
+        for(const m in board[n]){
+            if(m != 0) answer[n][m] += answer[n][m-1]; //n번째 줄 데미지 적어둔거 누적합처리
+            //1번 예제를 중심으로 n=0번째는 -4, -1, 0, 0, 1, 4 -> -4, -5, -5, -5, -4, 4 (마지막은 쓰는 용이 아니라서 안 들어감)
+            //그래서 5,5,5,5,5 + -4,-5,-5,-5,-4 -> 1,0,0,0,1이 나옴
+            board[n][m] += answer[n][m];
+            if(board[n][m] > 0) cnt++;
+        }
+    }
+
+    return cnt;
 }
 
 출처 : 프로그래머스 연습문제 2022 KAKAO BLIND RECRUITMENT 파괴되지 않은 건물, https://programmers.co.kr/learn/courses/30/lessons/92344?language=javascript
