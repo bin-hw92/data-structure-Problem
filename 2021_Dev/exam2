@@ -86,3 +86,11 @@ function solution(enroll, referral, seller, amount) {
     return answer;
 }
 //출처 : 프로그래머스 연습문제 2021-Dev-Matching 백엔드 개발(상반기) 다단계 칫솔 판매, https://programmers.co.kr/learn/courses/30/lessons/77486?language=javascript
+----------------------------------------------------------------------------------------------------------------------------------------------------
+해당 문제는 트리 방식으로 구현을 후 최하위 노드부터 최상단까지 이동을 거듭해서, 값을 넣는 방식을 사용해도 되고
+
+그냥 enroll 값과 연결된 referral 값을 찾아서 금액을 넣어주면 됩니다.
+
+저는 Map을 이용해서  객체명을 enroll 값으로  value를 [referral, 0] 으로 만들고, 10%의 수익이 0원이 아닐 경우 상위 노드에 전달하는 방식을 사용했습니다.
+
+
