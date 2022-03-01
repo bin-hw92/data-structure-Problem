@@ -63,3 +63,8 @@ function solution(rows, columns, queries) {
 
 //출처: 프로그래머스 연습문제 2021-Dev-Matching : 백엔드 개발(상반기) 행렬 테두리 회전,  https://programmers.co.kr/learn/courses/30/lessons/77485
 
+해당 문제는 주어진 2차원 배열을 queries에 있는 사각형 범위만큼 한칸씩 오른쪽으로 이동 시키고 그 값 중 최소값을
+반환하는 문제입니다.
+저 같은 경우에는 tmp에 list 배열을 깊은 복사를 하고  list에 이전 값인 tmp를 넣어서 한칸씩 이동시키는 방식을 사용했습니다.
+
+그러다 보니, 효율성이 조금 떨어지는 것 같습니다.
