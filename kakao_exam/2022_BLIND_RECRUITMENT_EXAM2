@@ -67,7 +67,7 @@ skill.forEach(([type, r1, c1, r2, c2, degree]) => {
    // console.log(board)
 }
 
-출처 : 프로그래머스 연습문제 카카오 파괴되지 않은 건물, https://programmers.co.kr/learn/courses/30/lessons/92344?language=javascript
+출처 : 프로그래머스 연습문제 2022 KAKAO BLIND RECRUITMENT 파괴되지 않은 건물, https://programmers.co.kr/learn/courses/30/lessons/92344?language=javascript
 --------------------------------------------------------------------------------------------------------------------------------
 각각 2차원 배열 범위에 데미지들을 계산해서, 마지막에 남은 건물 수를 반환하면 되는 문제입니다.
 그냥 skill 값을 반복해서 계산을 하게되면 효율성에서 떨어져서 테스트 통과가 안됩니다.
