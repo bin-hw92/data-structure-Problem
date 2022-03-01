@@ -62,27 +62,22 @@ function solution(id_list, report, k) {
     for(const i of report){
         let tmp = i.split(" ");
         if(userInfo.has(tmp[1])){
-            if(!userInfo.get(tmp[1])[1].includes(tmp[0])){ 
-                //한번만 신고 가능하기 때문에 없는 이름만 등록 
+            if(!userInfo.get(tmp[1])[1].includes(tmp[0])){
                 let num = userInfo.get(tmp[1])[0];
                 let name = userInfo.get(tmp[1])[1];
                 userInfo.set(tmp[1], [num+1, [...name, tmp[0]]]);
             }
         }
     }
-    
-    const answer = [];
+
     [...userInfo].forEach(([user, item], idx) => {
        if(item[0] >= k){
-           //지금까지 신고 수 중 K 값을 넘은 건수를 찾아서 신고한 사람한테 메일 발송
            item[1].forEach(send => {
                userAnswer.set(send, Number(userAnswer.get(send))+1);
            });
        }
     });
-    [...userAnswer].forEach(([user, cnt]) => answer.push(cnt)); //순서대로 메일 발송 건수 등록
-    
-    return answer;
+    return [...userAnswer].flatMap(x => x[1]);
 }
 
 //출처 : 프로그래머스 연습문제 2022 KAKAO BLIND RECRUITMENT 신고결과 받기, https://programmers.co.kr/learn/courses/30/lessons/92334?language=javascript
