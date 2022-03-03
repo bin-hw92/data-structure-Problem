@@ -31,7 +31,6 @@ function solution(s) {
         let cnt = 1;
         let tmp_str = '';
         for (let k = i; k < s.length; k += i) {
-            //console.log(k, i)
             const cur = s.substr(k, i);
             if (prev === cur) cnt++;
             else {
