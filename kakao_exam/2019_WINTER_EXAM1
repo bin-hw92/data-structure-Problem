@@ -43,15 +43,13 @@ s	result
 
 function solution(s) {
     let answer = [];
-    let start = s.split('{{');
-    let end = start[1].split('}}');
-    let list = end[0].replace(/},{/g, ' ');
-    let arr = list.split(' ');
+    let list = s.replace(/[{{]|,|[}}]/g, ' ').replace(/^\s+|\s+$/g,'')
+    let arr = list.split('   ');
     arr.sort((a,b) => b.length - a.length);
     
     const name = new Map();
     for(let i of arr){
-        let tmp = i.split(',');
+        let tmp = i.split(' ');
         for(let j=0; j < tmp.length; j++){
             if(!name.has(tmp[j])) name.set(tmp[j], 1);
             else name.set(tmp[j], Number(name.get(tmp[j])) +1);
@@ -60,12 +58,11 @@ function solution(s) {
     [...name].sort((a,b) => b[1] -a[1]).flatMap(item => answer.push(Number(item[0])));
     return answer;
 }
+
 // 출처 : 프로그래머스 연습문제 2019 카카오 겨울 인턴 테스트  "튜플" , https://programmers.co.kr/learn/courses/30/lessons/64065?language=javascript
 ----------------------------------------------------------------------------------------------------------------------------------------------
 해당 문제 같은 경우 숫자로 된 학생들이 몇번씩 튜플을 진행했고, 내림차순으로 배열에 넣어 반환하는 문제입니다. 
-
 당황스러웠던 점은 데이터 제공을 문자열로 {} 을 이용해서 보내준 부분이라, 해당 부분을 자르고 배열에 담아 진행을 했습니다.
-
 그 후에는 Map에 담아 각각 몇번씩 참여했는지 확인하고 내림차순 정렬 후 보내주기만 하면 되는 문제입니다.
 
 
