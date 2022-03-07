@@ -43,4 +43,46 @@ fucntion solution(money){
     return answer;
 }
 ```
-이런식으로 최적의 답은 아니더라도, 현재 주어진 상황에서 가장 좋은 결과만 호출하는 
+이런식으로 최적의 답은 아니더라도, 현재 주어진 상황에서 가장 좋은 결과를 찾는 알고리즘 입니다.
+
+# 완전 탐색
+
+전체 요소를 일일이 순회하여 가능한 모든 경우의 수를 도출하는 것
+알고리즘으로는 브루트 포스, 비트 마스트, 백 트래킹, 순열 등이 존재합니다.
+
+대부분 재귀를 통해 모든 상황을 탐색하는 알고리즘이라고 보면 됩니다.
+
+### 완전탐색
+```
+let set = new Set();
+numOfCase([1,7],'')
+function numOfCase(arr,str) {
+	if(arr.length) {
+    	for(let i = 0; i <arr.length; i++) {
+        	let copy = [...arr];
+          	copy.splice(i,1);
+          	numOfCase(copy,str + arr[i])
+        }
+    }
+  	if(str > 0) set.add(Number(str))
+}
+console.log(Array.from(set)) 
+// [17,1,71,7]
+```
+### 순열
+```
+function combination(arr, num) {
+  let result = [];
+  if(num == 1) return arr.map(e => [e]);
+  
+  arr.forEach((e,i,array) => {
+    let rest = [...array.slice(0,i), ...array.slice(i+1)];
+    let combinations = combination(rest,num-1);
+    let combiArr = combinations.map(x => [e, ...x])
+    result.push(...combiArr);
+  }) 
+  return result;
+}
+```
+
+
