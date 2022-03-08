@@ -141,7 +141,7 @@ console.log(table.size); //0
 ```
 # 스택/큐
 
-##스택
+## 스택
 Last In First Out이라는 개념을 가진 선형 자료구조다.
 배열로 표현이 가능하며, Linked List로 표현이 가능합니다.
 
