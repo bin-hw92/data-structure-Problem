@@ -139,7 +139,65 @@ console.log(table.size); //2
 table.clear();
 console.log(table.size); //0
 ```
+# 스택/큐
 
+##스택
+Last In First Out이라는 개념을 가진 선형 자료구조다.
+배열로 표현이 가능하며, Linked List로 표현이 가능합니다.
+
+```
+//array로 구현
+const stack = [];
+//push
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log(stack); //[1,2,3]
+//pop
+stack.pop();
+console.log(stack); //[1,2]
+//get Top
+console.log(stack[stack.length -1]); //2
+```
+## 큐
+First In First Out이라는 개념을 가진 선형 자료 구조다.
+Linear Queue와 Circular Queue가 존재합니다.
+```
+class Queue {
+  constructor(){
+    this.queue = [];
+    this.front = 0;
+    this.rear = 0;
+  }
+  
+  enqueue(value){
+    this.queue[this.rear++] = value;
+  }
+  dequeue(){
+    const value = this.queue[this.front];
+    delete this.queue[this.front];
+    this.front += 1;
+    return value;
+  }
+  peek(){
+    return this.queue[this.front];
+  }
+  size(){
+    return this.rear - this.front;
+  }
+}
+
+const queue = new Queue();
+qeueue.enqueue(1);
+qeueue.enqueue(2);
+qeueue.enqueue(4);
+console.log(queue.dequeue()); //1
+qeueue.enqueue(8);
+console.log(queue.size())//3
+console.log(queue.peek())//2
+console.log(queue.dequeue())//2
+console.log(queue.dequeue())//4
+```
 
 
 
