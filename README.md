@@ -85,4 +85,61 @@ function combination(arr, num) {
 }
 ```
 
+# 해시
+
+키와 값을 받아 키를 해싱(Hashing)하여 나온 index에 값을 저장하는 선현 자료구조
+삽입은 O(1)이며 키를 알고 있다면 삭제, 탐색도 O(1)로 수행한다.
+
+선형 탐사법, 제곱 탐사법, 이중 해싱, 분리 연결법 등이 있습니다.
+주로 특정 정보 값을 알고 싶을 때 사용합니다.
+
+배열과 Map, Set을 이용해 만들 수 있습니다.
+
+### javascript Object ~ Hash Table
+```
+const table = {};
+tahble["key"] = 100;
+table["key2"] = "Hello";
+console.log(table["key"]); //100
+table["key"] = 349;
+console.log(table["key"]); //349
+delete table["key"];
+console.log(table["key"]); //undefined
+```
+
+### Map
+```
+const table = new Map();
+table.set("key", 100);
+table.set('key2", "Hello");
+console.log(table["key"]); //undefined
+console.log(table.get("key)); //100
+const object = { a: 1 };
+table.set(object, "A1");
+console.log(table.get(object)); //A1
+table.delete(object);
+console.log(table.get(object)); //undefined
+console.log(table.keys()); // {'key', 'key2'}
+console.log(table.values()); // {100, 'Hello'}
+table.clear();
+console.log(table.values()); // {}
+```
+
+### Set
+```
+const table = new Set();
+table.add("key"); //Key와 Value가 동일하게 들어간다.
+table.add("key2");
+console.log(table.has("key")); // true
+console.log(table.has("key3")); //false
+table.delete("key2");
+console.log(table.has("key2")); //false
+table.add("key3");
+console.log(table.size); //2
+table.clear();
+console.log(table.size); //0
+```
+
+
+
 
