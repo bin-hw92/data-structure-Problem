@@ -82,6 +82,7 @@ function solution(n, s, a, b, fares) {
     }
     return answer;
 }
+```
 
 #### 출처 : 프로그래머스 연습문제 카카오 문제 합승 택시 요금, https://programmers.co.kr/learn/courses/30/lessons/72413?language=javascript
 ----------------------------------------------------------------------------------------------------------------------------------
