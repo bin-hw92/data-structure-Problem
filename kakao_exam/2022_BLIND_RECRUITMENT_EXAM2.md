@@ -6,23 +6,23 @@ N x M 크기의 행렬 모양의 게임 맵이 있습니다. 이 맵에는 내�
 적의 공격과 아군의 회복 스킬은 항상 직사각형 모양입니다.
 예를 들어, 아래 사진은 크기가 4 x 5인 맵에 내구도가 5인 건물들이 있는 상태입니다.
 
-https://user-images.githubusercontent.com/45866008/158761483-3bc6e4e3-e778-40b6-b2d6-c0ad3ffe8462.png
+![04_2022_공채문제_파괴되지않은건물_01](https://user-images.githubusercontent.com/45866008/158761483-3bc6e4e3-e778-40b6-b2d6-c0ad3ffe8462.png)
 
 첫 번째로 적이 맵의 (0,0)부터 (3,4)까지 공격하여 4만큼 건물의 내구도를 낮추면 아래와 같은 상태가 됩니다.
 
-https://user-images.githubusercontent.com/45866008/158761495-3803350d-aec5-4aee-ad54-43d88e773a1c.png
+![04_2022_공채문제_파괴되지않은건물_02](https://user-images.githubusercontent.com/45866008/158761495-3803350d-aec5-4aee-ad54-43d88e773a1c.png)
 
 두 번째로 적이 맵의 (2,0)부터 (2,3)까지 공격하여 2만큼 건물의 내구도를 낮추면 아래와 같이 4개의 건물이 파괴되는 상태가 됩니다.
 
-https://user-images.githubusercontent.com/45866008/158761498-dc153fba-bdea-4dae-91f1-c7d607a6b899.png
+![04_2022_공채문제_파괴되지않은건물_03](https://user-images.githubusercontent.com/45866008/158761498-dc153fba-bdea-4dae-91f1-c7d607a6b899.png)
 
 세 번째로 아군이 맵의 (1,0)부터 (3,1)까지 회복하여 2만큼 건물의 내구도를 높이면 아래와 같이 2개의 건물이 파괴되었다가 복구되고 2개의 건물만 파괴되어있는 상태가 됩니다.
 
-https://user-images.githubusercontent.com/45866008/158761499-197394aa-d4c4-45fd-8b74-385d7f562995.png
+![04_2022_공채문제_파괴되지않은건물_04](https://user-images.githubusercontent.com/45866008/158761499-197394aa-d4c4-45fd-8b74-385d7f562995.png)
 
 마지막으로 적이 맵의 (0,1)부터 (3,3)까지 공격하여 1만큼 건물의 내구도를 낮추면 아래와 같이 8개의 건물이 더 파괴되어 총 10개의 건물이 파괴된 상태가 됩니다. (내구도가 0 이하가 된 이미 파괴된 건물도, 공격을 받으면 계속해서 내구도가 하락하는 것에 유의해주세요.)
 
-https://user-images.githubusercontent.com/45866008/158761501-8ccbbee2-5f73-405b-9586-7cb47ca107f7.png
+![04_2022_공채문제_파괴되지않은건물_05](https://user-images.githubusercontent.com/45866008/158761501-8ccbbee2-5f73-405b-9586-7cb47ca107f7.png)
 
 최종적으로 총 10개의 건물이 파괴되지 않았습니다.
 
@@ -88,10 +88,4 @@ function solution(board, skill) {
 카카오측 블로그에서 해당 내용을 확인해보면, 누적합을 이용해서 풀면 시간 복잡도를 줄일 수 있다고 합니다.
 해당 내용을 참고해서 다시 풀었던 내용입니다.
 //카카오 블라인드 테스트 문제 참고용: https://tech.kakao.com/2022/01/14/2022-kakao-recruitment-round-1/ 
-
-![04_2022_공채문제_파괴되지않은건물_01](https://user-images.githubusercontent.com/45866008/158761483-3bc6e4e3-e778-40b6-b2d6-c0ad3ffe8462.png)
-![04_2022_공채문제_파괴되지않은건물_02](https://user-images.githubusercontent.com/45866008/158761495-3803350d-aec5-4aee-ad54-43d88e773a1c.png)
-![04_2022_공채문제_파괴되지않은건물_03](https://user-images.githubusercontent.com/45866008/158761498-dc153fba-bdea-4dae-91f1-c7d607a6b899.png)
-![04_2022_공채문제_파괴되지않은건물_04](https://user-images.githubusercontent.com/45866008/158761499-197394aa-d4c4-45fd-8b74-385d7f562995.png)
-![04_2022_공채문제_파괴되지않은건물_05](https://user-images.githubusercontent.com/45866008/158761501-8ccbbee2-5f73-405b-9586-7cb47ca107f7.png)
 
