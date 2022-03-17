@@ -89,4 +89,9 @@ function solution(board, skill) {
 해당 내용을 참고해서 다시 풀었던 내용입니다.
 //카카오 블라인드 테스트 문제 참고용: https://tech.kakao.com/2022/01/14/2022-kakao-recruitment-round-1/ 
 
+![04_2022_공채문제_파괴되지않은건물_01](https://user-images.githubusercontent.com/45866008/158761483-3bc6e4e3-e778-40b6-b2d6-c0ad3ffe8462.png)
+![04_2022_공채문제_파괴되지않은건물_02](https://user-images.githubusercontent.com/45866008/158761495-3803350d-aec5-4aee-ad54-43d88e773a1c.png)
+![04_2022_공채문제_파괴되지않은건물_03](https://user-images.githubusercontent.com/45866008/158761498-dc153fba-bdea-4dae-91f1-c7d607a6b899.png)
+![04_2022_공채문제_파괴되지않은건물_04](https://user-images.githubusercontent.com/45866008/158761499-197394aa-d4c4-45fd-8b74-385d7f562995.png)
+![04_2022_공채문제_파괴되지않은건물_05](https://user-images.githubusercontent.com/45866008/158761501-8ccbbee2-5f73-405b-9586-7cb47ca107f7.png)
 
