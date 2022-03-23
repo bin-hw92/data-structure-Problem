@@ -136,7 +136,7 @@
   - POST는  HTTP 메세지의 Body에 담아서 전송, 그 Body의 타입은 요청 헤더의 Content-Type에 요청 데이터의 타입을 표시 따라 결정
 
 - Request와 Response
- - 웹 브라우저(클라이언트)를 통해 서버에 요청하는것 -> Request
- - 서버에서 웹 브라우저(클라이언트)에 응답하는 것 -> Response
+  - 웹 브라우저(클라이언트)를 통해 서버에 요청하는것 -> Request
+  - 서버에서 웹 브라우저(클라이언트)에 응답하는 것 -> Response
 
  
