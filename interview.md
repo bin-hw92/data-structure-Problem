@@ -46,11 +46,12 @@
   - 타입스크립트 코드의 타입 추론을 돕는 파일
   - 기존 JS 모듈의 타입정보를 별도의 파일로 선언 한것으로, JS 모듈을 타입스크립트에서 사용하기 용이하도록 도와줌
   
-- REST api에 대해 설명해 주세요.
+- REST api에 대해 설명해 주세요.(Representational state transfer )
   - 자원을 이름(표현)으로 구분하여 해당 자원의 상태를 주고 받는 모든 것을 의미
   - URI를 통해 자원을 명시하고, Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD operation을 적용
   - 웹 사이트의 이미지, 텍스트, DB 내용 등 모든 자원에 대한 고유한 ID인 HTTP URI를 부여
   - CURD : create (생성 POST), read (조회 GET), update (수정 PUT), delete (삭제 DELETE), HEAD (header 조회)
+  - 자원(RESOURCE) - URI, 행위(Verb) - HTTP METHOD, 표현(Representations) 3가지로 나뉘며, URI와 METHOD를 통해 표현(CURD) 실행
   
 - HTTP 메서드가 무엇인가요? / POST와 UPDATE의 차이가 무엇인가요?
   - HTTP 메소드는 클라이언트가 웹 서버에게 사용자 요청의 목적이나 종류를 알리는 수단 (GET, POST, PUT, PATCH, DELETE 등) (기타: HEAD, OPTIONS, CONNECT, TRACE)
