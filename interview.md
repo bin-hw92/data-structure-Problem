@@ -130,5 +130,13 @@
   - SSL(Secure Sockets Layer)은 암호화 기반 인터넷 보안 프로토콜입니다
   - ssl 인증서를 통해 보안 유지를 하는 것으로 알고 있음
 
+- GET, POST 차이점
+  - GET method는 클라이언트에서 서버로 어떠한 리소스로 부터 정보를 요청하기 위해 사용되는 메서드입니다.(URL 주소 끝에 파라미터로 전송, 쿼리 스트링 (query string)이라고 함)
+  - POST method는 리소스를 생성/업데이트하기 위해 서버에 데이터를 보내는 데 사용됩니다.
+  - POST는  HTTP 메세지의 Body에 담아서 전송, 그 Body의 타입은 요청 헤더의 Content-Type에 요청 데이터의 타입을 표시 따라 결정
 
+- Request와 Response
+ - 웹 브라우저(클라이언트)를 통해 서버에 요청하는것 -> Request
+ - 서버에서 웹 브라우저(클라이언트)에 응답하는 것 -> Response
 
+ 
