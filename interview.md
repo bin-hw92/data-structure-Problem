@@ -230,7 +230,7 @@
 |3&2|2|
 |4\5|5|
 |0&&'value'|0|
-|0\\'value'|value|
+|0 `\\` 'value'|value|
 |{} === {}|false|
 |null == undefined|true|
  
