@@ -171,6 +171,7 @@
   - context를 이용하면 단계마다 일일이 props를 넘겨주지 않고도 컴포넌트 트리 전체에 데이터를 제공할 수 있습니다.
   - 여러 컴포넌트들에 전해줘야 하는 props의 경우 (예를 들면 선호 로케일, UI 테마) 이 과정이 번거로울 수 있습니다. context를 이용하면, 트리 단계마다 명시적으로 props를 넘겨주지 않아도 많은 컴포넌트가 이러한 값을 공유하도록 할 수 있습니다.
   - 하위 컴포넌트들이 다 똑같은 props를 가질 필요 없을 경우에는 사용하지 않는게 좋음 (아래 컴포넌트를 볼 때, Page 컴포넌트에 있는 user, avatarSize props 값을 Avatar 컴포넌트에서만 사용을 할 경우 `Context Api`를 사용하지 않고 그 아래 코드 처럼 이용을 합니다. 이걸 제어의 역전(inversion of control)이라고 부릅니다.)
+  
   ```
   <Page user={user} avatarSize={avatarSize} />
   // ... 그 아래에 ...
@@ -187,23 +188,21 @@
   function Page(props) {
   const user = props.user;
   const userLink = (
-    <Link href={user.permalink}>
-      <Avatar user={user} size={props.avatarSize} />
-    </Link>
-  );
-  return <PageLayout userLink={userLink} />;
-}
+      <Link href={user.permalink}>
+        <Avatar user={user} size={props.avatarSize} />
+      </Link>
+    );
+    return <PageLayout userLink={userLink} />;
+  }
 
-//이제 이렇게 쓸 수 있습니다.
-
-<Page user={user} avatarSize={avatarSize} />
-// ... 그 아래에 ...
-<PageLayout userLink={...} />
-// ... 그 아래에 ...
-<NavigationBar userLink={...} />
-// ... 그 아래에 ...
-{props.userLink}
-
+  //이제 이렇게 쓸 수 있습니다.
+  <Page user={user} avatarSize={avatarSize} />
+  // ... 그 아래에 ...
+  <PageLayout userLink={...} />
+  // ... 그 아래에 ...
+  <NavigationBar userLink={...} />
+  // ... 그 아래에 ...
+  {props.userLink}
   ```
 
 #### 그 외 내용
