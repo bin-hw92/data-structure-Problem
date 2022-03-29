@@ -158,6 +158,43 @@
   - 클래스형 컴포넌트는 로직과 상태를 컴포넌트 내에서 구현하기 때문에 상대적으로 복잡한 UI 로직을 갖는 경우가 많다.
   - 함수형 컴포넌트는 state를 사용하지 않고 단순하게 데이터를 받아서(props) UI에 뿌려준다. HOOKs로 인해 로직의 재사용이 가능하다는 장점이 있어 함수형 컴포넌트+Hook을 주로 사용한다고 한다.
 
+- Context Api에 대해 설명하시오.
+  - context를 이용하면 단계마다 일일이 props를 넘겨주지 않고도 컴포넌트 트리 전체에 데이터를 제공할 수 있습니다.
+  - 여러 컴포넌트들에 전해줘야 하는 props의 경우 (예를 들면 선호 로케일, UI 테마) 이 과정이 번거로울 수 있습니다. context를 이용하면, 트리 단계마다 명시적으로 props를 넘겨주지 않아도 많은 컴포넌트가 이러한 값을 공유하도록 할 수 있습니다.
+  - 하위 컴포넌트들이 다 똑같은 props를 가질 필요 없을 경우에는 사용하지 않는게 좋음 (아래 컴포넌트를 볼 때, Page 컴포넌트에 있는 user, avatarSize props 값을 Avatar 컴포넌트에서만 사용을 할 경우 `Context Api`를 사용하지 않고 그 아래 코드 처럼 이용을 합니다. 이걸 제어의 역전(inversion of control)이라고 부릅니다.)
+  ```
+  <Page user={user} avatarSize={avatarSize} />
+  // ... 그 아래에 ...
+  <PageLayout user={user} avatarSize={avatarSize} />
+  // ... 그 아래에 ...
+  <NavigationBar user={user} avatarSize={avatarSize} />
+  // ... 그 아래에 ...
+  <Link href={user.permalink}>
+    <Avatar user={user} size={avatarSize} />
+  </Link>
+  
+  // Context Api를 사용하지 않고 props 값 넘겨주기 위해
+  
+  function Page(props) {
+  const user = props.user;
+  const userLink = (
+    <Link href={user.permalink}>
+      <Avatar user={user} size={props.avatarSize} />
+    </Link>
+  );
+  return <PageLayout userLink={userLink} />;
+}
+
+// 이제 이렇게 쓸 수 있습니다.
+<Page user={user} avatarSize={avatarSize} />
+// ... 그 아래에 ...
+<PageLayout userLink={...} />
+// ... 그 아래에 ...
+<NavigationBar userLink={...} />
+// ... 그 아래에 ...
+{props.userLink}
+  ```
+
 #### 그 외 내용
 - Nginx에 대해 설명해 주세요.
   - 웹 서버이다.
