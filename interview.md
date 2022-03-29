@@ -194,7 +194,8 @@
   return <PageLayout userLink={userLink} />;
 }
 
-// 이제 이렇게 쓸 수 있습니다.
+//이제 이렇게 쓸 수 있습니다.
+
 <Page user={user} avatarSize={avatarSize} />
 // ... 그 아래에 ...
 <PageLayout userLink={...} />
@@ -202,6 +203,7 @@
 <NavigationBar userLink={...} />
 // ... 그 아래에 ...
 {props.userLink}
+
   ```
 
 #### 그 외 내용
