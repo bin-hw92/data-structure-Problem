@@ -223,3 +223,7 @@
   - 웹 브라우저(클라이언트)를 통해 서버에 요청하는것 -> Request
   - 서버에서 웹 브라우저(클라이언트)에 응답하는 것 -> Response
 
+- git merge와 git rebase 대해 설명하시오.
+  - merge와 rebase는 git의 branch를 합치는 작업을 의미합니다.(Merge는 branch를 통합하는 것이고, Rebase는 branch의 base를 옮긴다는 개념의 차이가 있습니다.)
+  - rebase는 커밋으로 나뉜 분기 branch의 base를 변경하는 것을 의미
+  - merge는 나뉜 branch를 다음 커밋 분기로 합쳐주는 것을 
