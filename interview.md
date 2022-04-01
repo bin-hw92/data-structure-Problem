@@ -124,7 +124,15 @@
   - async, await은 Callback, Promise의 단점을 보완하고 개발자가 읽기 좋은 코드를 작성할 수 있게 도와 줌
   - async, await의 예외처리는 try, catch문을 이용해야함.
   - async라는 예약어를 함수 앞에 붙이고 비동기 처리 코드에 await를 붙여서 비동기 처리가 다 될때까지 기다리게 해야함.(이때 await를 붙이 비동기 처리 메서드는 꼭 Promise 객체를 반환해야함)
-  - **여러개를 동시 처리하는 방법**
+  
+- Promise 기능에 대해
+  - `Promise.all(promises)` – 모든 프라미스가 이행될 때까지 기다렸다가 그 결괏값을 담은 배열을 반환합니다. 주어진 프라미스 중 하나라도 실패하면 Promise.all는 거부되고, 나머지 프라미스의 결과는 무시됩니다.
+  - `Promise.allSettled(promises)` – 최근에 추가된 메서드로 모든 프라미스가 처리될 때까지 기다렸다가 그 결과(객체)를 담은 배열을 반환합니다. 객체엔 다음과 같은 정보가 담깁니다.
+    - status: "fulfilled" 또는 "rejected"
+    - value(프라미스가 성공한 경우) 또는 reason(프라미스가 실패한 경우)
+  - `Promise.race(promises)` – 가장 먼저 처리된 프라미스의 결과 또는 에러를 담은 프라미스를 반환합니다.
+  - `Promise.resolve(value)` – 주어진 값을 사용해 이행 상태의 프라미스를 만듭니다.
+  - `Promise.reject(error)` – 주어진 에러를 사용해 거부 상태의 프라미스를 만듭니다.
 
 
 ### React 등 관한 문제
