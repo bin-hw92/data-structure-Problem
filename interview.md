@@ -137,6 +137,9 @@
   - `Promise.race(promises)` – 가장 먼저 처리된 프라미스의 결과 또는 에러를 담은 프라미스를 반환합니다.
   - `Promise.resolve(value)` – 주어진 값을 사용해 이행 상태의 프라미스를 만듭니다.
   - `Promise.reject(error)` – 주어진 에러를 사용해 거부 상태의 프라미스를 만듭니다.
+  - all에서 결과값이 실패해도 상관 없이 모든 결과값을 가지고 오는 방법
+    - Promise.all([p1.catch(error=> {return error})]); 이런식으로 미리 선언하여 처리하는 방식
+    - Promise.all([promiseArray.map(item => item.then(...).catch(...))] map 함수를 이용해서 처리하는 방식 등이 있습니다.
 
 
 ### React 등 관한 문제
