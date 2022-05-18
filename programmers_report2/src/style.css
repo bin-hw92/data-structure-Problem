@@ -1,0 +1,237 @@
+@font-face {
+    font-family: "Goyang";
+    src: url("fonts/Goyang.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  body * {
+    font-family: Goyang;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  #App {
+    margin: 1.5em auto;
+    max-width: 1200px;
+    column-gap: 1.5em;
+  }
+  
+  .RandomResult {
+    margin-top: 10px;
+    padding: 0px 35px;
+    display: flex;
+    position: relative;
+  }
+
+  .RandomResult .next {
+    position: absolute;
+    right: 0;
+    background: #eee;
+    height: 100%;
+    align-items: center;
+    width: 35px;
+    display: inline-flex;
+    justify-content: center;
+    cursor: pinter;
+  }
+
+  .RandomResult .prev {
+    position: absolute;
+    left: 0;
+    background: #eee;
+    height: 100%;
+    align-items: center;
+    width: 35px;
+    display: inline-flex;
+    justify-content: center;
+    cursor: pinter;
+  }
+
+  .RandomResult img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .RandomResult .item {
+    background-color: #eee;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .SearchResult {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(230px, 1fr));
+    grid-gap: 10px;
+  }
+  
+  .SearchResult img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .SearchResult .item {
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+  }
+
+  .SearchWrap {
+    display: flex;
+  }
+  .SearchInput {
+    width: 100%;
+    font-size: 40px;
+    padding: 10px 15px;
+  }
+  .randomBtn {
+    margin-left: 0.5em;
+    width: 80px;
+  }
+  
+  .ImageInfo {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .ImageInfo .title {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .ImageInfo .title,
+  .ImageInfo .description {
+    padding: 5px;
+  }
+  
+  .ImageInfo .content-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+  
+  .ImageInfo .content-wrapper img {
+    width: 100%;
+  }
+  
+  .Loading_wrap {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 75px);
+    width: 150px;
+    height: 50px;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .Loading_wrap .title {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .keyword-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+  }
+  .keyword-card {
+    position: relative;
+    margin-right: 0.5em;
+    padding: 0.5em 1.5em 0.5em 0.5em;
+    font-size: 1.5em;
+    text-align: left;
+    border: 1px solid #000;
+  }
+  .keyword-card > span {
+    position: absolute;
+    right: 0.2em;
+    cursor: pointer;
+  }
+  .dark {
+    background-color: #000;
+    color: white;
+  }
+  body.dark .ImageInfo .content-wrapper {
+    background-color: #000;
+    color: #fff;
+  }
+  .light {
+    background-color: #fff;
+    color: #000;
+  }
+  body.light .ImageInfo .content-wrapper {
+    background-color: #fff;
+    color: #000;
+  }
+  @media (prefers-color-scheme: dark) {
+    .dark {
+      background-color: #000;
+      color: white;
+    }
+    .ImageInfo .content-wrapper {
+      background-color: #000;
+      color: white;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .light {
+      background-color: #fff;
+      color: #000;
+    }
+    .ImageInfo .content-wrapper {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+    
+  @media screen and (max-width: 992px){
+    .SearchResult {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(200px, 1fr));
+      grid-gap: 10px;
+    }
+  }
+  
+  @media screen and (max-width: 768px){
+    .SearchResult {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
+      grid-gap: 10px;
+    }
+    .ImageInfo .content-wrapper {
+      position: absolute;
+      left: 0%;
+      transform: translate(0%, -50%);
+    }
+  }
+  
+  @media screen and (max-width: 576px){
+    .SearchResult {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(1, minmax(200px, 1fr));
+      grid-gap: 10px;
+    }
+  }
