@@ -18,6 +18,7 @@
 - 변환할 수 없는 경우에는 0를 return 합니다.
 
 #### 입출력 예
+
 |begin|target|words|return|
 |-|-|-|-|-|
 |"hit"|"cog"|["hot", "dot", "dog", "lot", "log", "cog"]|4|
